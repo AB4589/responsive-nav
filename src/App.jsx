@@ -1,44 +1,28 @@
+import { Outlet } from 'react-router';
 import './App.css'
 import DaisyNav from './components/DaisyNav/DaisyNav'
 import NavBar from './components/NavBar/NavBar'
+import ResultChart from './components/ResultChart/ResultChart';
+import Footer from './components/Footer/Footer';
+import Header from './components/Header/Header';
+import Sidebar from './components/Sidebar/Sidebar';
+// import { RechartsDevtools } from '@recharts/devtools';
+// import { Line, LineChart } from 'recharts';
 
 function App() {
-  const navigationData =  [
-  {
-    "id": 1,
-    "name": "Dashboard",
-    "url": "/dashboard",
-    "icon": "layout-dashboard"
-  },
-  {
-    "id": 2,
-    "name": "Users",
-    "url": "/users",
-    "icon": "users"
-  },
-  {
-    "id": 3,
-    "name": "Transactions",
-    "url": "/transactions",
-    "icon": "arrow-left-right"
-  },
-  {
-    "id": 4,
-    "name": "Settings",
-    "url": "/settings",
-    "icon": "settings"
-  },
-  {
-    "id": 5,
-    "name": "Reports",
-    "url": "/reports",
-    "icon": "bar-chart-3"
-  }
-];
+
+
+
   return (
     <>
-      <NavBar navigationData={navigationData}></NavBar>
-      <DaisyNav></DaisyNav>
+      {/* <NavBar navigationData={navigationData}></NavBar>
+      <DaisyNav></DaisyNav> */}
+      <Header></Header>
+      <div className='flex justify-content'>
+        <Sidebar></Sidebar>
+        <Outlet></Outlet>
+      </div>
+      <Footer></Footer>
     </>
   )
 }

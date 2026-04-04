@@ -1,4 +1,9 @@
- [
+import React from 'react';
+import NavBar from '../NavBar/NavBar';
+import DaisyNav from '../DaisyNav/DaisyNav';
+
+const Header = () => {
+      const navigationData =  [
   {
     "id": 1,
     "name": "Home",
@@ -7,7 +12,7 @@
   },
   {
     "id": 2,
-    "name": "about",
+    "name": "About",
     "url": "/about",
     "icon": "about"
   },
@@ -29,4 +34,13 @@
     "url": "/reports",
     "icon": "bar-chart-3"
   }
-]
+];
+    return (
+        <div>
+            <NavBar navigationData={navigationData}></NavBar>
+            <DaisyNav></DaisyNav>
+        </div>
+    );
+};
+
+export default Header;
