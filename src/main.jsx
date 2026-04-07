@@ -1,11 +1,16 @@
-import { StrictMode } from 'react'
+import { StrictMode, Suspense } from 'react'
 import { createRoot } from 'react-dom/client'
 import './index.css'
 import App from './App.jsx'
 import { createBrowserRouter } from "react-router";
 import { RouterProvider } from "react-router/dom";
 import ResultChart from './components/ResultChart/ResultChart.jsx';
+import User from './components/Users/Users.jsx';
+import { User2 } from 'lucide-react';
+import Users2 from './components/Users/Users2.jsx';
+import UserDetails from './components/User/UserDetails.jsx';
 
+const userPromise = fetch("https://jsonplaceholder.typicode.com/users").then(res=> res.json());
 
 const router = createBrowserRouter([
   {
@@ -25,6 +30,22 @@ const router = createBrowserRouter([
         path: "about",
         element: <div>This is about page</div>
       },
+      {
+        path: "users",
+        loader: () => fetch('https://jsonplaceholder.typicode.com/users'),
+        element: <User></User>
+      },
+      {
+        path: "users2",
+        // loader: () => fetch('https://jsonplaceholder.typicode.com/users').then(res => res.json()),
+        element: <Suspense fallback={<span>Loading....</span>}><Users2 userPromise={userPromise}></Users2></Suspense>
+      },
+      {
+        path: "users/:userId",
+        loader: ({params}) => {fetch(`https://jsonplaceholder.typicode.com/users/${params.userId}`)
+        },
+        Component: UserDetails
+      }
     ]
   },
   {

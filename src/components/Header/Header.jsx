@@ -30,15 +30,21 @@ const Header = () => {
   },
   {
     "id": 5,
-    "name": "Reports",
-    "url": "/reports",
-    "icon": "bar-chart-3"
+    "name": "Users",
+    "url": "/users",
+    "icon": "users"
+  },
+  {
+    "id": 6,
+    "name": "Users2",
+    "url": "/users2",
+    "icon": "users"
   }
 ];
     return (
-        <div>
+        <div >
             <NavBar navigationData={navigationData}></NavBar>
-            <DaisyNav></DaisyNav>
+            {/* <DaisyNav></DaisyNav> */}
         </div>
     );
 };

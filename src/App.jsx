@@ -17,11 +17,13 @@ function App() {
     <>
       {/* <NavBar navigationData={navigationData}></NavBar>
       <DaisyNav></DaisyNav> */}
-      <Header></Header>
-      <div className='flex justify-content'>
-        <Sidebar></Sidebar>
-        <Outlet></Outlet>
+      <div className='flex justify-center m-4'>
+        <Header></Header>
       </div>
+       <div className='flex justify-center items-center'>
+           <Sidebar></Sidebar>
+            <Outlet></Outlet>
+        </div>
       <Footer></Footer>
     </>
   )

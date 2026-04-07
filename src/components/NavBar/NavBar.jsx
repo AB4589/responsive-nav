@@ -8,7 +8,7 @@ const NavBar = ({ navigationData }) => {
    const [open, setOpen] = useState(false);
    const links =  navigationData.map((route, index) => (
           // <Link key={index} route={route}></Link>
-          <Link to={route.url} key={index}>{route.name}</Link>
+          <Link to={route.url} key={index} className='m-5'>{route.name}</Link>
 
         ))
      return (
@@ -17,10 +17,9 @@ const NavBar = ({ navigationData }) => {
          {open ? <X className='md:hidden' onClick={()=>setOpen(!open)}></X> : <Menu className='md:hidden' onClick={()=>setOpen(!open)}></Menu>}
     <div className={`md:hidden absolute duration-1000 ${open? 'top-21' : '-top-42'}`}>{links}</div>
       <ul className="md:flex hidden">
-          {links}
+          <li>{links}</li>
       </ul>
-
-    </nav>
+    </nav> 
      
       </>
   );
