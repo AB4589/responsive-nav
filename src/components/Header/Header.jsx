@@ -24,9 +24,9 @@ const Header = () => {
   },
   {
     "id": 4,
-    "name": "Settings",
-    "url": "/settings",
-    "icon": "settings"
+    "name": "Posts",
+    "url": "/posts",
+    "icon": "posts"
   },
   {
     "id": 5,

@@ -1,4 +1,4 @@
-import { Outlet } from 'react-router';
+import { Outlet, useNavigation } from 'react-router';
 import './App.css'
 import DaisyNav from './components/DaisyNav/DaisyNav'
 import NavBar from './components/NavBar/NavBar'
@@ -10,9 +10,8 @@ import Sidebar from './components/Sidebar/Sidebar';
 // import { Line, LineChart } from 'recharts';
 
 function App() {
-
-
-
+  const navigation = useNavigation();
+  const isNavigating = Boolean(navigation.location)
   return (
     <>
       {/* <NavBar navigationData={navigationData}></NavBar>
@@ -20,7 +19,9 @@ function App() {
       <div className='flex justify-center m-4'>
         <Header></Header>
       </div>
+         
        <div className='flex justify-center items-center'>
+         {isNavigating && <span>Loading...</span>}
            <Sidebar></Sidebar>
             <Outlet></Outlet>
         </div>
